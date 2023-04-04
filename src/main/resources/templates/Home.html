@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Corona Virus Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   
+  </head>
+
+  <body>
+  <div class="container">
+<h1>Coronavirus Tracker Application</h1>
+<p>This application lists the current number of cases reported across the India</p>
+  <div class="jumbotron">
+    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+    <p class="lead">Total cases reported as of today</p>
+     <h1 class="display-4" th:text="${NewCases}"></h1>
+    <p class="lead">Total New cases reported from yesterday</p>
+    <hr class="my-4">
+   
+  
+    <p th:text="${testname}"></p>
+     <table class="table">
+      <tr>
+        <th>hasc</th>
+        <th>States</th>
+        <th>Totalcases Reported</th>
+        <th>New cases reported</th>
+      </tr>
+      <tr th:each="locationstat : ${locationstats}">
+        <td th:text="${locationstat.hasc}"></td>
+        <td th:text="${locationstat.States}"></td>
+        <td th:text="${locationstat.Totalcases}">0</td>
+        <td th:text="${locationstat.CasesReported}">0</td>
+      </tr>
+     </table> 
+  
+  
+  </body>
+
+</html>
